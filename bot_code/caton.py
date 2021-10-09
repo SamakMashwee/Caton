@@ -27,15 +27,18 @@ class my_client(discord.Client):
 	#- the command handler for the bot.                                          #
 	async def on_message(self, message):
 
-		if message.content.startswith(PREFIX):
-			command = message.content.strip(PREFIX)
+		if message.content.startswith(PREFIX) and message.author.id != self.user.id:
+
+			args = message.content.split()
+			command = args[0].strip(PREFIX)
+			args.pop(0)
+			print(args)
 
 			try:
-				await COMMANDS[command].execute(message)
+				await COMMANDS[command].execute(self, message, args, command, PREFIX)
 
 			except KeyError:
 				print("Command does not exist.")
 				return
 
-client = my_client()
-client.run(TOKEN)
+my_client().run(TOKEN)
