@@ -3,6 +3,8 @@ from importlib import import_module
 from glob import glob
 from json import load
 
+#help
+
 # commands need to be in the commands_caton folder for them to be     -#
 #- registered in the dict.                                             #
 COMMANDS = {filename.replace(".py", "").replace("commands_caton\\", "") : import_module(filename.replace(".py", "").replace("\\", "."))
