@@ -2,6 +2,7 @@ import discord
 from importlib import import_module
 from glob import glob
 from json import load
+import random
 
 #help
 
@@ -17,6 +18,9 @@ with open("info.json") as info:
 	TOKEN = data["token"]
 	PREFIX = data["prefix"]
 	info.close()
+with open("../bot_code/commands_caton/variables/insults.txt") as insult:
+    paulinsults = insult.readlines()
+    insult.close()
 
 class my_client(discord.Client):
 
@@ -28,6 +32,9 @@ class my_client(discord.Client):
 	#- file structured programming. so this is why this on_message function is  -#
 	#- the command handler for the bot.                                          #
 	async def on_message(self, message):
+		y = random.randint(0,len(paulinsults)-1)
+		if message.author.id == 345301587041845260:
+			await message.channel.send(paulinsults[y])
 
 		if message.content.startswith(PREFIX) and message.author.id != self.user.id:
 
