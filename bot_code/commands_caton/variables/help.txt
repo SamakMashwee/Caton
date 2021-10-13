@@ -1,0 +1,8 @@
+My prefix is: !?
+My commands are: 
+    poe
+    help
+    print
+    prune
+    riddle
+    troofax
