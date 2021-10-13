@@ -6,4 +6,3 @@ with open("../bot_code/commands_caton/variables/troofax.txt") as facts:
 
 async def execute(client, message, args, command, prefix):
     await message.channel.send(fact_list[randint(0, len(fact_list)-1)])
-    print(fact_list)
