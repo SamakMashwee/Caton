@@ -34,13 +34,11 @@ class my_client(discord.Client):
 			args = message.content.split()
 			command = args[0].strip(PREFIX)
 			args.pop(0)
-			print(args)
 
 			try:
 				await COMMANDS[command].execute(self, message, args, command, PREFIX)
 
 			except KeyError:
-				print("Command does not exist.")
 				return
 
 my_client().run(TOKEN)
