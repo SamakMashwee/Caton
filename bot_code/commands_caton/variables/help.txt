@@ -1,3 +1,4 @@
+Github: https://github.com/SamakMashwee/caton_bot
 My prefix is: !?
 My commands are: 
     poe
